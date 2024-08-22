@@ -3,7 +3,7 @@ ARG ARG_BUILD_DIR="/tmp/springboot"
 #########
 # Build
 #########
-FROM maven:3-openjdk-17 AS build
+FROM maven:3-openjdk-18 AS build
 
 ARG ARG_BUILD_DIR
 ENV BUILD_DIR=${ARG_BUILD_DIR}
