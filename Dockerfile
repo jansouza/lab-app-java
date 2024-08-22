@@ -40,7 +40,7 @@ RUN mvn clean test jacoco:report
 # Runner
 #########
 #FROM eclipse-temurin:17-alpine
-FROM eclipse-temurin:17
+FROM eclipse-temurin:21
 
 ARG ARG_BUILD_DIR
 ENV BUILD_DIR=${ARG_BUILD_DIR}
