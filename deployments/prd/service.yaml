@@ -3,7 +3,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: lab-app-java-service
-  namespace: default
+  namespace: lab
   labels:
     app: lab-app-java
 spec:

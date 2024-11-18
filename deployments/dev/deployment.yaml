@@ -6,9 +6,9 @@ metadata:
   namespace: lab
   labels:
     app: lab-app-java
-    env: prd
+    env: dev
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: lab-app-java
@@ -16,7 +16,7 @@ spec:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
-    type: RollingUpdate      
+    type: RollingUpdate
   template:
     metadata:
       annotations:
@@ -24,11 +24,11 @@ spec:
         logging.json: 'true'
       labels:
         app: lab-app-java
-        env: prd
+        env: dev
     spec:
       containers:
         - name: lab-app-java
-          image: registry.docker-registry.svc:5001/prd/lab-app-java:latest
+          image: registry.docker-registry.svc:5001/dev/lab-app-java:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -38,7 +38,7 @@ spec:
               path: /actuator/health/liveness
               port: 8080
               scheme: HTTP
-            initialDelaySeconds: 30
+            initialDelaySeconds: 15
             periodSeconds: 30
             successThreshold: 1
             failureThreshold: 3
@@ -48,7 +48,7 @@ spec:
               path: /actuator/health/readiness
               port: 8080
               scheme: HTTP
-            initialDelaySeconds: 30
+            initialDelaySeconds: 15
             periodSeconds: 30
             successThreshold: 1
             failureThreshold: 3
