@@ -22,7 +22,10 @@ Build the Docker image manually by cloning the Git repo.
 
 Maven
   ```
-  mvn clean install
+  ./mvnw clean install
+  
+  # Package
+  ./mvnw clean package
   ```
 
 Run the container
@@ -32,7 +35,6 @@ Create a container from the image.
   ```
   $ docker run --name lab-app-java -d -p 8080:8080 lab-app-java
   ```
-
 
 Test
 ----------
@@ -46,3 +48,8 @@ Maven
   ```
   mvn clean test jacoco:report
   ```
+
+URLs
+----------
+https://localhost:9080/api/call
+https://localhost:9080/api/erro500
